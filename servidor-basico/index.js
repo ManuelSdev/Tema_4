@@ -1,13 +1,18 @@
 //Cargar librería http
 const http= require('http')
+//Cargar librería chance
+const Chance=require('chance')
+
+const chance= new Chance()
+
 
 //Definir un servidor (usa meth createServer de librería require)
 
 const server = http.createServer(function(request, response) {
     //response.writeHead(200, { 'Content-type': 'text/plain'});  
     response.writeHead(200, { 'Content-type': 'text/html'});  //ahora pilla el formato html
-
-    response.end('Wake up, <b>Neddo...</b>');
+    //Creamos un nombre aleatorio con chance y lo colamos
+    response.end(`Wake up, <b>${chance.name()}</b>`);
 
 })
 
